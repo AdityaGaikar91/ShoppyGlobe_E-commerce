@@ -6,6 +6,8 @@ import './ProductItem.css'
 
 /**
  * ProductItem component - displays a single product with Add to Cart button
+ * @param {Object} props - Component props
+ * @param {Object} props.product - Product object containing id, title, price, thumbnail, etc.
  */
 function ProductItem({ product }) {
   const dispatch = useDispatch()
