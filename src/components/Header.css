@@ -42,8 +42,10 @@
   position: relative;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus {
   opacity: 0.8;
+  outline: none;
 }
 
 .cart-link {
@@ -72,7 +74,7 @@
   .logo h1 {
     font-size: 1.4rem;
   }
-  
+
   .nav {
     gap: 1rem;
   }
