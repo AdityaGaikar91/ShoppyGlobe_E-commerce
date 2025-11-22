@@ -19,7 +19,7 @@ function Header() {
         
         <nav className="nav">
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/cart" className="nav-link cart-link">
+          <Link to="/cart" className="nav-link cart-link" aria-label={`Shopping cart with ${cartItemCount} items`}>
             <ShoppingCart size={24} />
             {cartItemCount > 0 && (
               <span className="cart-badge">{cartItemCount}</span>
