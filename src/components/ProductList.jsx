@@ -1,6 +1,7 @@
 import { lazy } from 'react'
-import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useProductFetch } from '../hooks/useProductFetch'
+import { setSearchQuery, selectSearchQuery } from '../store/productSlice'
 import { Search } from 'lucide-react'
 import './ProductList.css'
 
@@ -11,10 +12,11 @@ const ProductItem = lazy(() => import('./ProductItem'))
  * ProductList component - displays products with search functionality
  */
 function ProductList() {
+  const dispatch = useDispatch()
   const { products, loading, error } = useProductFetch()
-  const [searchQuery, setSearchQuery] = useState('')
+  const searchQuery = useSelector(selectSearchQuery)
 
-  // Filter products based on search query
+  // Filter products based on search query from Redux state
   const filteredProducts = products.filter(product =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     product.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -48,7 +50,7 @@ function ProductList() {
             type="text"
             placeholder="Search products..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => dispatch(setSearchQuery(e.target.value))}
             className="search-input"
           />
         </div>
