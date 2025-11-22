@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+/**
+ * Cart Slice - Manages shopping cart state
+ * Handles adding, removing, updating quantities, and clearing cart
+ */
+
 const initialState = {
   items: [], // Array of cart items: { id, title, price, quantity, thumbnail }
 }
