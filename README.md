@@ -82,7 +82,7 @@ Products are fetched from [DummyJSON](https://dummyjson.com/products)
 
 ## GitHub Repository
 
-[Link to repository will be added here]
+**Repository Link**: [https://github.com/AdityaGaikar91/ShoppyGlobe_E-commerce](https://github.com/AdityaGaikar91/ShoppyGlobe_E-commerce)
 
 ## License
 
