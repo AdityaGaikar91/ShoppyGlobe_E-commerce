@@ -5,6 +5,8 @@ import './CartItem.css'
 
 /**
  * CartItem component - represents a single item in the cart
+ * @param {Object} props - Component props
+ * @param {Object} props.item - Cart item object containing id, title, price, quantity, thumbnail
  */
 function CartItem({ item }) {
   const dispatch = useDispatch()
