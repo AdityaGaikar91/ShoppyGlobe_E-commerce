@@ -1,7 +1,13 @@
-import { lazy } from 'react'
+import { useEffect, lazy } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useProductFetch } from '../hooks/useProductFetch'
-import { setSearchQuery, selectSearchQuery } from '../store/productSlice'
+import { 
+  setSearchQuery, 
+  selectSearchQuery, 
+  fetchProducts, 
+  selectProducts, 
+  selectProductStatus, 
+  selectProductError 
+} from '../store/productSlice'
 import { Search } from 'lucide-react'
 import './ProductList.css'
 
@@ -13,8 +19,16 @@ const ProductItem = lazy(() => import('./ProductItem'))
  */
 function ProductList() {
   const dispatch = useDispatch()
-  const { products, loading, error } = useProductFetch()
+  const products = useSelector(selectProducts)
+  const status = useSelector(selectProductStatus)
+  const error = useSelector(selectProductError)
   const searchQuery = useSelector(selectSearchQuery)
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchProducts())
+    }
+  }, [status, dispatch])
       
   // Filter products based on search query from Redux state
   const filteredProducts = products.filter(product =>
@@ -22,7 +36,7 @@ function ProductList() {
     product.description.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
-  if (loading) {
+  if (status === 'loading') {
     return (
       <div className="loading-container">
         <div className="spinner"></div>
@@ -31,7 +45,7 @@ function ProductList() {
     )
   }
 
-  if (error) {
+  if (status === 'failed') {
     return (
       <div className="error-container">
         <h2>Error Loading Products</h2>
