@@ -15,7 +15,7 @@ function ProductList() {
   const dispatch = useDispatch()
   const { products, loading, error } = useProductFetch()
   const searchQuery = useSelector(selectSearchQuery)
-
+      
   // Filter products based on search query from Redux state
   const filteredProducts = products.filter(product =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||

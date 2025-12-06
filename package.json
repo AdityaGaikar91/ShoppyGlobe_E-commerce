@@ -1,11 +1,14 @@
 {
     "name": "shoppyglobe-ecommerce",
+    "homepage": "https://AdityaGaikar91.github.io/ShoppyGlobe_E-commerce",
     "private": true,
     "version": "0.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist",
         "preview": "vite preview"
     },
     "dependencies": {
@@ -20,6 +23,7 @@
         "@types/react": "^18.3.12",
         "@types/react-dom": "^18.3.1",
         "@vitejs/plugin-react": "^4.3.3",
+        "gh-pages": "^6.3.0",
         "vite": "^6.0.1"
     }
 }
