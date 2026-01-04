@@ -80,9 +80,7 @@ const router = createBrowserRouter([
       </>
     ),
   },
-], {
-  basename: "/ShoppyGlobe_E-commerce"
-})
+])
 
 function App() {
   return <RouterProvider router={router} />
